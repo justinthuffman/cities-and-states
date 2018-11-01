@@ -13,7 +13,6 @@ public class StateModel {
 
 	@Id
 	@GeneratedValue
-
 	private Long id;
 	private String stateName;
 	private String motto;
@@ -22,7 +21,7 @@ public class StateModel {
 	@Embedded
 	private FishModel fish;
 
-	@OneToMany(mappedBy = "stateName")
+	@OneToMany(mappedBy = "state")
 	private Collection<CityModel> cities;
 
 	public StateModel() {

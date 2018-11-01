@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class CityModel {
 
@@ -12,20 +14,21 @@ public class CityModel {
 	@GeneratedValue
 	private Long id;
 	private String cityName;
-	private String stateName;
 	private int population;
+// Prevents recursive state having cities-having a state-having cities-having a state...
+	@JsonIgnore
 
 	@ManyToOne
-	private CityModel city;
+	private StateModel state;
 
 	public CityModel() {
 	}
 
-	public CityModel(Long id, String cityName, String stateName, int population) {
-		this.id = id;
+	public CityModel(String cityName, int population, StateModel state) {
+		super();
 		this.cityName = cityName;
-		this.stateName = stateName;
 		this.population = population;
+		this.state = state;
 	}
 
 	public Long getId() {
@@ -36,16 +39,8 @@ public class CityModel {
 		return cityName;
 	}
 
-	public String getStateName() {
-		return stateName;
-	}
-
 	public int getPopulation() {
 		return population;
-	}
-
-	public CityModel getCity() {
-		return city;
 	}
 
 }

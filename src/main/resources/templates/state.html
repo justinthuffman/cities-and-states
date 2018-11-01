@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>STATE</title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/layout.css">
 </head>
 <body>
-
+	<header>
+		<h1 th:text="${state.stateName}"></h1>
+	</header>
+	<main>
+		<!-- <div th:each="state : ${city.cities}">
+					<li><a th:href="|/cities/${city.id}|" th:text="${city.cityName}"></a></li> -->
+	</main>
+	<footer>
+		<small>&copy; 2018</small>
+	</footer>
 </body>
 </html>

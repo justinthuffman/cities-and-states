@@ -28,7 +28,7 @@ public class StateModel {
 	}
 
 	public StateModel(String stateName, String abbreviation, String motto, FishModel fish, String citiesUrl) {
-		super();
+//		super();
 		this.stateName = stateName;
 		this.abbreviation = abbreviation;
 		this.motto = motto;
